@@ -74,6 +74,10 @@ def create_all_items(world: STKWorld) -> None:
         for i in range(4):
             items.append(track.name)
 
+    for track in tracks.pre_unlocked():
+        for i in range(track.unlock):
+            items.remove(track.name)
+
     if world.options.nitro:
         items += ["Nitro Ability"]
 
